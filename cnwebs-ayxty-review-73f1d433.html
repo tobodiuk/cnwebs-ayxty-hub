@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏体育 · 信息索引页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f2f4f6;
+      color: #1e2a3a;
+      line-height: 1.65;
+      padding: 2rem 1.5rem;
+    }
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    /* hero 区域 */
+    .hero {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 3rem 2.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.06);
+      border: 1px solid #e6eaef;
+    }
+    .hero h1 {
+      font-weight: 500;
+      font-size: 2.2rem;
+      letter-spacing: -0.02em;
+      color: #0f1f2f;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.08rem;
+      color: #2f4052;
+      max-width: 72ch;
+      margin-bottom: 1.2rem;
+    }
+    .hero .tagline {
+      display: inline-block;
+      background: #eef2f7;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.88rem;
+      color: #34506a;
+      border: 1px solid #d9e0e8;
+    }
+    /* 卡片网格 */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.8rem;
+      margin: 2.5rem 0;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2rem 1.6rem;
+      border: 1px solid #e3e8ef;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0, 0, 0, 0.03);
+      transition: box-shadow 0.15s ease;
+    }
+    .card:hover {
+      box-shadow: 0 8px 22px rgba(0, 20, 40, 0.06);
+    }
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 480;
+      margin-bottom: 0.8rem;
+      color: #1c2b3b;
+      border-left: 4px solid #aabbce;
+      padding-left: 0.9rem;
+    }
+    .card p, .card li {
+      color: #2f4052;
+      font-size: 0.98rem;
+    }
+    .card ul {
+      list-style: none;
+      padding-left: 0.2rem;
+    }
+    .card li {
+      padding: 0.3rem 0;
+      position: relative;
+      padding-left: 1.3rem;
+    }
+    .card li::before {
+      content: "·";
+      position: absolute;
+      left: 0.1rem;
+      color: #7a8ba0;
+      font-weight: 600;
+    }
+    /* 场景区块——单列大卡片 */
+    .scene-section {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 2.2rem 2.5rem;
+      margin: 2.2rem 0;
+      border: 1px solid #e3e8ef;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    }
+    .scene-section h2 {
+      font-weight: 470;
+      font-size: 1.6rem;
+      margin-bottom: 1.4rem;
+      color: #14222f;
+    }
+    .scene-block {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem 2.5rem;
+    }
+    .scene-item {
+      flex: 1 1 220px;
+    }
+    .scene-item strong {
+      display: block;
+      font-weight: 500;
+      color: #1f3142;
+      margin-bottom: 0.3rem;
+      font-size: 1rem;
+    }
+    .scene-item p {
+      font-size: 0.95rem;
+      color: #3e546b;
+    }
+    /* 提示/faq 精简卡片 */
+    .tip-card {
+      background: #f8fafc;
+      border-radius: 20px;
+      padding: 1.7rem 2rem;
+      margin: 2rem 0 1.8rem 0;
+      border: 1px solid #dce3ec;
+      box-shadow: inset 0 1px 2px rgba(255,255,255,0.8);
+    }
+    .tip-card h3 {
+      font-weight: 470;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: #1c2e40;
+    }
+    .tip-card p {
+      font-size: 0.96rem;
+      margin-bottom: 0.6rem;
+      color: #2d4055;
+    }
+    .tip-card .faq-q {
+      font-weight: 470;
+      margin-top: 0.8rem;
+    }
+    /* 链接样式 */
+    a {
+      color: #1e4f70;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+    a:hover {
+      border-bottom-color: #1e4f70;
+    }
+    .link-card {
+      margin-top: 2rem;
+      padding: 1.4rem 0;
+      border-top: 1px solid #dfe5ed;
+    }
+    .link-card p {
+      font-size: 1rem;
+      color: #2a3c4e;
+    }
+    /* 响应式 */
+    @media (max-width: 620px) {
+      body { padding: 1.2rem; }
+      .hero { padding: 2rem 1.5rem; }
+      .hero h1 { font-size: 1.7rem; }
+      .scene-section { padding: 1.8rem 1.5rem; }
+      .grid { gap: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- hero 摘要 -->
+  <div class="hero">
+    <h1>资料整理：爱游戏体育</h1>
+    <p>从一个信息索引的角度，梳理关于体育资讯、赛事数据与内容平台的实用要点。本页不构成推荐，仅作为结构化参考。</p>
+    <span class="tagline">基于公开信息整理 · 2025</span>
+  </div>
+
+  <!-- 亮点卡片 (产品特点) -->
+  <div class="grid">
+    <div class="card">
+      <h3>信息整合方式</h3>
+      <ul>
+        <li>汇聚多联赛动态与数据表</li>
+        <li>分类导航：足球、篮球、网球等</li>
+        <li>部分内容支持历史对比查询</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>内容覆盖</h3>
+      <ul>
+        <li>实时赛程与比分跟进</li>
+        <li>赛事前瞻与赛后摘要</li>
+        <li>积分榜、射手榜等结构化列表</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>呈现特点</h3>
+      <ul>
+        <li>版面偏重信息密度</li>
+        <li>文字为主，图表为辅</li>
+        <li>更新节奏相对稳定</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 使用建议 / 场景 -->
+  <div class="scene-section">
+    <h2>常见使用场景</h2>
+    <div class="scene-block">
+      <div class="scene-item">
+        <strong>日常资讯浏览</strong>
+        <p>适合在早间或晚间快速浏览当日要点，获取联赛结果及变动。</p>
+      </div>
+      <div class="scene-item">
+        <strong>赛事数据参考</strong>
+        <p>查询近期交锋记录、球队数据走势，辅助个人分析。</p>
+      </div>
+      <div class="scene-item">
+        <strong>主题整理</strong>
+        <p>将平台公开信息作为素材之一，用于运动专题的汇总与梳理。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 提示 / faq 摘要 -->
+  <div class="tip-card">
+    <h3>使用提示</h3>
+    <p>▪ 内容均来自公开页面，请自行判断信息时效性与准确性。</p>
+    <p>▪ 体育数据变动频繁，建议通过多个来源交叉核对。</p>
+    <p class="faq-q">▪ 常见疑问：是否支持历史赛季深度检索？</p>
+    <p>部分赛季数据可查阅，但完整历史存档需视具体版块维护情况而定。</p>
+  </div>
+
+  <!-- 可信但克制的访问说明（链接自然嵌入） -->
+  <div class="link-card">
+    <p>
+      如果你正在了解体育信息类平台，可将 <a href="https://cnwebs-ayxty.com">爱游戏体育</a> 作为资料索引的起点之一。页面内容以文字资讯和结构化数据为主，适合作为日常信息流的补充。请根据个人需要合理使用，并留意信息源更新日期。
+    </p>
+    <p style="margin-top: 1.2rem; font-size: 0.9rem; color: #5d6f83;">
+      本页仅作介绍性整理，不构成任何形式的引导或保证。
+    </p>
+  </div>
+
+  <!-- 细微收尾 -->
+  <div style="margin-top: 2.8rem; margin-bottom: 1rem; text-align: left; font-size: 0.85rem; color: #8597ab; border-top: 1px solid #e3e9f0; padding-top: 1.5rem;">
+    页面基于公开信息整理 · 内容方向：产品说明式 · 视觉：浅灰背景 / 卡片分区
+  </div>
+
+</div>
+</body>
+</html>
